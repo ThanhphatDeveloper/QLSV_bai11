@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-   public class SinhVienDAO
-   {
+    public class SinhVienDAO
+    {
+        //string connectstring = @"Data Source=DESKTOP-1IH4FH5\SQLEXPRESS;Initial Catalog=QLSinhVien;Integrated Security=True";
         QLSinhVienEntities qlsvEntities = new QLSinhVienEntities();
         public List<SinhVienDTO> LayDSSV()
         {
-            
-            return qlsvEntities.SinhViens.Select(u => new SinhVienDTO { ID = u.ID, MSSV = u.MSSV, Ho = u.Ho, Ten = u.Ten, MaLop = u.MaLop, NgaySinh = u.NgaySinh.Value, DiaChi = u.DiaChi, TrangThai = u.TrangThai.Value }).ToList();
+            //List<SinhVienDTO> sinhVienDTO = new List<SinhVienDTO>();
+            //List<SinhVien> sinhVienEnts = new List<SinhVien>();
+            //sinhVienEnts = qlsvEntities.SinhViens.ToList<SinhVien>();
+            //sinhVienDTO = sinhVienEnts.Select(u => new SinhVienDTO { ID = u.ID, MSSV = u.MSSV }).ToList();
+            return qlsvEntities.SinhViens.Select(u => new SinhVienDTO { ID = u.ID, MSSV = u.MSSV, Ho = u.Ho, Ten = u.Ten, MaLop = u.MaLop, NgaySinh = u.NgaySinh.Value, DiaChi = u.DiaChi, TrangThai = u.TrangThai.Value }).Where(u => u.TrangThai == 1).ToList();
         }
-
-
         public bool ThemSV(SinhVienDTO sv)
         {
             try
@@ -43,14 +45,34 @@ namespace DAO
         }
         public bool XoaSV(string mssv)
         {
-            SinhVien svX = qlsvEntities.SinhViens.SingleOrDefault(u => u.MSSV == mssv);
-            if (svX == null)
+            SinhVien sv = qlsvEntities.SinhViens.SingleOrDefault(u => u.MSSV == mssv);
+
+            if (sv == null)
             {
                 return false;
             }
-            svX.TrangThai = 0;
+            sv.TrangThai = 0;
             qlsvEntities.SaveChanges();
             return true;
+        }
+        public bool SuaSV(SinhVienDTO sv)
+        {
+            SinhVien svs = qlsvEntities.SinhViens.SingleOrDefault(u => u.MSSV == sv.MSSV);
+            if (svs == null)
+            {
+                return false;
+            }
+            else
+            {
+                svs.Ho = sv.Ho;
+                svs.Ten = sv.Ten;
+                svs.MaLop = sv.MaLop;
+                svs.NgaySinh = sv.NgaySinh;
+                svs.DiaChi = sv.DiaChi;
+                qlsvEntities.SaveChanges();
+                return true;
+            }
+
         }
     }
 }

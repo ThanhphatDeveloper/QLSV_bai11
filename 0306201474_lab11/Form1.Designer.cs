@@ -57,6 +57,7 @@
             this.colNgaysinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLop = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColDiachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
@@ -126,6 +127,7 @@
             this.btnXoa.TabIndex = 5;
             this.btnXoa.TabStop = false;
             this.btnXoa.Zoom = 10;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnReset
             // 
@@ -139,6 +141,7 @@
             this.btnReset.TabIndex = 5;
             this.btnReset.TabStop = false;
             this.btnReset.Zoom = 10;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnChinhsua
             // 
@@ -152,6 +155,7 @@
             this.btnChinhsua.TabIndex = 5;
             this.btnChinhsua.TabStop = false;
             this.btnChinhsua.Zoom = 10;
+            this.btnChinhsua.Click += new System.EventHandler(this.btnChinhsua_Click);
             // 
             // btnThem
             // 
@@ -284,7 +288,8 @@
             this.colTen,
             this.colNgaysinh,
             this.colLop,
-            this.ColDiachi});
+            this.ColDiachi,
+            this.colTrangThai});
             this.dgvQLSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvQLSV.Location = new System.Drawing.Point(0, 0);
             this.dgvQLSV.Name = "dgvQLSV";
@@ -334,6 +339,12 @@
             this.ColDiachi.HeaderText = "Địa chỉ";
             this.ColDiachi.Name = "ColDiachi";
             this.ColDiachi.Width = 200;
+            // 
+            // colTrangThai
+            // 
+            this.colTrangThai.DataPropertyName = "TrangThai";
+            this.colTrangThai.HeaderText = "Trạng thái";
+            this.colTrangThai.Name = "colTrangThai";
             // 
             // Form1
             // 
@@ -390,6 +401,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNgaysinh;
         private System.Windows.Forms.DataGridViewComboBoxColumn colLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDiachi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTrangThai;
     }
 }
 

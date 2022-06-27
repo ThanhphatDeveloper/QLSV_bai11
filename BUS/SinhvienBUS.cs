@@ -8,24 +8,25 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-   public class SinhVienBUS
-   {
-        private SinhVienDAO sinhVienDAO = new SinhVienDAO();
-        
+    public class SinhVienBUS
+    {
+        private SinhVienDAO sinhVien= new SinhVienDAO();
+
         public List<SinhVienDTO> LayDSSV()
         {
-            return sinhVienDAO.LayDSSV().Where(u => u.TrangThai == 1).ToList();
+            return sinhVien.LayDSSV();
         }
-
         public bool ThemSV(SinhVienDTO sinhVienT)
         {
-            return sinhVienDAO.ThemSV(sinhVienT);
+            return sinhVien.ThemSV(sinhVienT);
         }
-
         public bool XoaSV(string mssv)
         {
-            return sinhVienDAO.XoaSV(mssv);
+            return sinhVien.XoaSV(mssv);
         }
-
+        public bool SuaSV(SinhVienDTO sinhVienS)
+        {
+            return sinhVien.SuaSV(sinhVienS);
+        }
     }
 }

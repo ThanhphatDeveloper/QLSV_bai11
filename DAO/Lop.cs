@@ -22,6 +22,7 @@ namespace DAO
     
         public string MaLop { get; set; }
         public string TenLop { get; set; }
+        public Nullable<short> TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SinhVien> SinhViens { get; set; }

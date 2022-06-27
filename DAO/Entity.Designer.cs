@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'F:\0306201474_lab11\DAO\Entity.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Back up\0306201474_lab11\DAO\Entity.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
